@@ -11,5 +11,10 @@
 				"noUnusedTemplateLiteral": "off"
 			}
 		}
+	},
+	"css": {
+		"formatter": {
+			"enabled": true
+		}
 	}
 }

@@ -1,4 +1,4 @@
-const UserSettingPage = () => {
+const UserSettingPage = (): JSX.Element => {
 	return <div>UserSettingPage</div>;
 };
 
