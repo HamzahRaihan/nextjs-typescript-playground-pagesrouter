@@ -5,7 +5,7 @@ const AppShell = ({ children }: { children: React.ReactNode }) => {
   return (
     <main>
       <Navbar />
-      {children}
+      <div className="flex flex-col justify-center container">{children}</div>
     </main>
   );
 };

@@ -6,7 +6,7 @@ const DetailProduct = () => {
   return (
     <div>
       <h1>DetailProduct</h1>
-      <p>product: {query.id}</p>
+      <p>product: {query.slug?.[0]}</p>
     </div>
   );
 };

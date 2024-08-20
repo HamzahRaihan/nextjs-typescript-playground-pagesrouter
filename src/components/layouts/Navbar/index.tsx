@@ -9,7 +9,7 @@ const Navbar = () => {
       <Link href="/about" className="button">
         Menu
       </Link>
-      <Link href="/product/spatu-baru" className="button">
+      <Link href="/product/" className="button">
         Product
       </Link>
     </div>
