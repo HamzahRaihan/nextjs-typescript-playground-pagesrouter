@@ -12,6 +12,9 @@ const Navbar = () => {
       <Link href="/product/" className="button">
         Product
       </Link>
+      <Link href="/auth/login" className="button">
+        Login
+      </Link>
     </div>
   );
 };
