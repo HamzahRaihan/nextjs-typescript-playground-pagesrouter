@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  background-color: rgb(156, 144, 144);
+  gap: 20px;
+  justify-items: center;
+  padding: 10px 50px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    padding: 10px 10px;
+    gap: 10px;
+  }
+}
