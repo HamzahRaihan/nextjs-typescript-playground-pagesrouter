@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 
 const AppShell = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useRouter();
-  const disableNav = ['/auth/login', '/auth/register'];
+  const disableNav = ['/auth/login', '/auth/register', '/404'];
   return (
     <main>
       {!disableNav.includes(pathname) && <Navbar />}
-      <div className="flex flex-col justify-center container">{children}</div>
+      <div className="flex flex-col justify-center">{children}</div>
     </main>
   );
 };

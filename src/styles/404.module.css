@@ -1,0 +1,11 @@
+/* Undraw Illustrasion */
+.error {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  color: #2a2828;
+  font-weight: bold;
+}
