@@ -1,45 +1,30 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-
-type Category = {
-  category: string;
-  type: string;
-  id: number;
-};
-
-const categories: Category[] = [
-  {
-    category: 'jeans',
-    type: 'outer',
-    id: 1,
-  },
-  {
-    category: 't-shirt',
-    type: 'outer',
-    id: 2,
-  },
-  {
-    category: 'jacket',
-    type: 'outer',
-    id: 3,
-  },
-];
+import { ProductData } from '../api/product/product';
 
 const ProductPage = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
+  const [products, setProducts] = useState([]);
   const router = useRouter();
   useEffect(() => {
     if (!isLogin) router.push('/auth/login');
   }, [router, isLogin]);
+
+  useEffect(() => {
+    fetch('/api/product')
+      .then((res) => res.json())
+      .then((data) => setProducts(data.result));
+  }, []);
+
   return (
-    <div>
+    <div className="container">
       <h1>Product Page</h1>
-      <p className="font-bold m-2">Select Category</p>
+      <p className="font-bold">Select Product</p>
       <div className="flex flex-col gap-3">
-        {categories.map((item) => (
-          <Link key={item.id} href={`product/${item.category}`} className="button">
-            {item.category}
+        {products.map((product: ProductData) => (
+          <Link key={product.id} href={`product/${product.id}`} className="button">
+            {product.product_name}
           </Link>
         ))}
       </div>
