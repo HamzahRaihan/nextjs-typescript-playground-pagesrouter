@@ -1,23 +1,87 @@
+$extra-small: 300px;
+$small: 600px;
+$medium: 900px;
+
 .product {
   width: 100%;
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
     padding-bottom: 20px;
   }
-  &__title {
-    font-weight: 500;
-  }
-  &__card {
+  &__content {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    padding: 10px;
     overflow: auto;
+    &__skeleton {
+      &__title {
+        width: 60%;
+        height: 4%;
+        background-color: rgb(72, 72, 72);
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+      &__image {
+        background-color: gray;
+        height: 75%;
+        width: auto;
+        filter: grayscale(100%);
+        transition-duration: 150ms;
+      }
+      &__image:hover {
+        filter: grayscale(0%);
+      }
+      &__subtitle {
+        width: 25%;
+        height: 3%;
+        background-color: rgb(133, 133, 133);
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+      &__price {
+        width: 50%;
+        height: 3%;
+        background-color: rgb(133, 133, 133);
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+    }
+    &__title {
+      font-weight: bold;
+    }
+    &__image {
+      object-fit: cover;
+      height: 75%;
+      width: auto;
+      filter: grayscale(100%);
+      transition-duration: 150ms;
+    }
+    &__image:hover {
+      filter: grayscale(0%);
+    }
+    &__subtitle {
+      font-weight: 400;
+      color: rgb(102, 102, 102);
+    }
+    &__price {
+      font-weight: 500;
+    }
   }
-  &__image {
-    object-fit: cover;
-    height: 350px;
+  @media screen and (max-width: $medium) {
+    &__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media screen and (max-width: $small) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media screen and (max-width: $extra-small) {
+    &__grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
   }
 }
