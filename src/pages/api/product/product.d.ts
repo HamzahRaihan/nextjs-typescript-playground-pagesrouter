@@ -3,4 +3,5 @@ export type ProductData = {
   product_name: string;
   price: number;
   quantity: number;
+  image: string;
 };
