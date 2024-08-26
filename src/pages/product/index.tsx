@@ -5,7 +5,7 @@ import useSWR from 'swr';
 import { fetcher } from '@/lib/swr/fetcher';
 
 const ProductPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin] = useState(true);
 
   const router = useRouter();
   useEffect(() => {
@@ -18,7 +18,7 @@ const ProductPage = () => {
     <div className="container">
       <h1>Product Page</h1>
       <p className="font-bold">Select Product</p>
-      <ProductCard products={isLoading ? [] : data.result} isLoading={isLoading} />
+      <ProductCard products={isLoading ? [] : data.result} />
     </div>
   );
 };

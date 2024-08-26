@@ -3,11 +3,11 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './Product.module.scss';
 
-const ProductCard = ({ products, isLoading }: { products: ProductData[]; isLoading: boolean }) => {
+const ProductCard = ({ products }: { products: ProductData[] }) => {
   console.log('🚀 ~ ProductCard ~ products:', products);
   return (
     <div className={styles.product__grid}>
-      {isLoading ? (
+      {products.length === 0 ? (
         <div className={`${styles.product__content__skeleton} animate-pulse h-[400px]`}>
           <div className={styles.product__content__skeleton__image} />
           <div className={styles.product__content__skeleton__title} />
