@@ -2,18 +2,14 @@ import { ProductData } from '@/pages/api/product/product';
 import React from 'react';
 import Image from 'next/image';
 import styles from './Product.module.scss';
+import ProductSkeleton from './product-skeleton';
 
 const ProductCard = ({ products }: { products: ProductData[] }) => {
   console.log('🚀 ~ ProductCard ~ products:', products);
   return (
     <div className={styles.product__grid}>
       {products.length === 0 ? (
-        <div className={`${styles.product__content__skeleton} animate-pulse h-[400px]`}>
-          <div className={styles.product__content__skeleton__image} />
-          <div className={styles.product__content__skeleton__title} />
-          <div className={styles.product__content__skeleton__subtitle} />
-          <div className={styles.product__content__skeleton__price} />
-        </div>
+        <ProductSkeleton />
       ) : (
         products.map((product: ProductData) => (
           <div key={product.id} className={styles.product__content}>

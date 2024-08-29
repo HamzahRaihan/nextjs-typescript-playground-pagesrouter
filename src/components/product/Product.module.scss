@@ -25,7 +25,7 @@ $medium: 900px;
       }
       &__image {
         background-color: gray;
-        height: 75%;
+        height: 200px;
         width: auto;
         filter: grayscale(100%);
         transition-duration: 150ms;
@@ -53,7 +53,7 @@ $medium: 900px;
     }
     &__image {
       object-fit: cover;
-      height: 75%;
+      height: 200px;
       width: auto;
       filter: grayscale(100%);
       transition-duration: 150ms;

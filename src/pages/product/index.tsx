@@ -8,6 +8,7 @@ const ProductPage = () => {
   const [isLogin] = useState(true);
 
   const router = useRouter();
+
   useEffect(() => {
     if (!isLogin) router.push('/auth/login');
   }, [router, isLogin]);
