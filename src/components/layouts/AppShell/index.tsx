@@ -8,7 +8,7 @@ const AppShell = ({ children }: { children: React.ReactNode }) => {
   return (
     <main>
       {!disableNav.includes(pathname) && <Navbar />}
-      <div className="flex flex-col justify-center">{children}</div>
+      <div className="container flex flex-col justify-center">{children}</div>
     </main>
   );
 };

@@ -16,7 +16,7 @@ const ProductPage = () => {
   const { data, isLoading } = useSWR('/api/product', fetcher);
 
   return (
-    <div className="container">
+    <div>
       <h1>Product Page</h1>
       <p className="font-bold">Select Product</p>
       <ProductCard products={isLoading ? [] : data.result} />
