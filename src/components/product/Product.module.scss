@@ -2,6 +2,43 @@ $extra-small: 300px;
 $small: 600px;
 $medium: 900px;
 
+.productDetail {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  &__image {
+    object-fit: cover;
+    height: 500px;
+    width: auto;
+    transition-duration: 150ms;
+  }
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    &__title {
+      font-weight: bolder;
+      font-size: x-large;
+    }
+    &__category {
+      font-weight: 400;
+      color: rgb(102, 102, 102);
+    }
+    &__price {
+      font-weight: 500;
+    }
+  }
+}
+
+@media screen and (max-width: $medium) {
+  .productDetail {
+    flex-direction: column;
+    gap: 2px;
+    &__image {
+      height: 400px;
+    }
+  }
+}
+
 .product {
   width: 100%;
   &__grid {
