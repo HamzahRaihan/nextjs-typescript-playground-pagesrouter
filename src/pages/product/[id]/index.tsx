@@ -17,7 +17,6 @@ const DetailProduct = ({ product }: { product: ProductData }) => {
       {/* {isLoading ? <ProductSkeleton /> : <DetailProductComponent product={isLoading ? {} : data.result} />} */}
 
       {/* server-side and static-side */}
-      {/* <DetailProductComponent product={product} /> */}
       <DetailProductComponent product={product} />
     </div>
   );
