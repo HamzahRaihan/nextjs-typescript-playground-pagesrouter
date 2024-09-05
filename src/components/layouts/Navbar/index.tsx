@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './navbar.module.css';
+import { signIn } from 'next-auth/react';
 
 const Navbar = () => {
   return (
@@ -16,6 +17,9 @@ const Navbar = () => {
       <Link href="/auth/login" className="button">
         Login
       </Link>
+      <button type="button" className="button" onClick={() => signIn()}>
+        sign in
+      </button>
     </div>
   );
 };
