@@ -3,6 +3,8 @@
   background-color: rgb(156, 144, 144);
   gap: 20px;
   justify-items: center;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 50px;
   width: 100%;
 }

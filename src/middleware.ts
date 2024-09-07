@@ -1,16 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import withAuth from './middleware/withAuth';
 
-export function middleware(req: NextRequest) {
-  const isLogin = true;
-  if (isLogin) {
-    return NextResponse.next();
-  }
-  if (!isLogin && !req.nextUrl.pathname.startsWith('/auth/login')) {
-    return NextResponse.redirect(new URL('/auth/login', req.url));
-  }
+export function AuthMiddleware(req: NextRequest) {
+  const res = NextResponse.next();
+  return res;
 }
 
-export const config = {
-  matcher: ['/auth/login', '/product'],
-};
+export default withAuth(AuthMiddleware, ['/profile', '/product']);
+
+// export const config = {
+//   matcher: '/product',
+// };

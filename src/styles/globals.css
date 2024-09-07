@@ -26,6 +26,8 @@ body {
   padding: 2px 10px;
   border-radius: 10px;
   transition-duration: 150ms;
+  width: fit-content;
+  height: fit-content;
 }
 
 .button:hover {
