@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-const Form = () => {
+const FormRegister = () => {
   const [loading, setLoading] = useState(false);
   const { push } = useRouter();
   const formSchema = z.object({
@@ -48,8 +48,7 @@ const Form = () => {
       reset();
       setLoading(false);
       push('/auth/login');
-    }
-    if (response.status === 400) {
+    } else {
       setLoading(false);
       alert('email already exist');
       console.log('email already exist');
@@ -100,4 +99,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormRegister;

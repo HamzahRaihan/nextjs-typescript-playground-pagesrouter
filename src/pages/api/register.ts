@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const data = req.body;
   if (req.method === 'POST') {
     await signUp(data, ({ status, message }: StatusProps) => {
-      if (status == 'succeed') {
+      if (status == 'success') {
         res.status(200).json({ status, message });
       } else {
         res.status(400).json({ status, message });

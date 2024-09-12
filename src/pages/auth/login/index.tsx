@@ -1,29 +1,10 @@
-/* eslint-disable react/no-unescaped-entities */
-import Head from 'next/head';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import styles from './login.module.scss';
+import FormLogin from '@/components/elements/FormLogin';
 
 const LoginPage = () => {
-  const router = useRouter();
-  function handleLogin() {
-    router.push('/product');
-  }
   return (
-    <div className={styles.login}>
-      <Head>
-        <title>Login Page</title>
-      </Head>
-      <h1 className="text-2xl font-bold">Login</h1>
-      <button onClick={() => handleLogin()} className="button">
-        login
-      </button>
-      <p>
-        Don't have account?{' '}
-        <span>
-          <Link href={'register'}>Register</Link>
-        </span>
-      </p>
+    <div className="flex items-center justify-center h-screen flex-col gap-2">
+      <h1 className="font-bold text-xl">Login</h1>
+      <FormLogin />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import styles from './navbar.module.css';
 import { signIn, signOut, useSession } from 'next-auth/react';
 
 const Navbar = () => {
-  const { data } = useSession();
+  const { data }: any = useSession();
   console.log('🚀 ~ Navbar ~ data:', data);
   return (
     <div className={styles.navbar}>
@@ -37,7 +37,7 @@ const Navbar = () => {
         {data?.user && (
           <div className="flex text-white items-center gap-1 border p-1 rounded-xl cursor-pointer hover:bg-zinc-100 hover:text-black transition-all ">
             <div className="rounded-full w-8 h-8 bg-gray-200 animate-pulse"></div>
-            {data.user.name}
+            {data.user.fullname}
           </div>
         )}
       </div>
