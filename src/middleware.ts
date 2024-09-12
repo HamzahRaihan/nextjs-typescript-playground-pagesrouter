@@ -7,7 +7,7 @@ export function AuthMiddleware(req: NextRequest) {
   return res;
 }
 
-export default withAuth(AuthMiddleware, ['/profile', '/product']);
+export default withAuth(AuthMiddleware, ['/profile', '/product', '/admin']);
 
 // export const config = {
 //   matcher: '/product',

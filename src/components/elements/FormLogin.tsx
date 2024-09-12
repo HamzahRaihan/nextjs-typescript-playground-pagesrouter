@@ -9,6 +9,7 @@ import { z } from 'zod';
 
 const FormLogin = () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const { push, query } = useRouter();
 
   const callbackUrl: any = query.callbackUrl || '/';
@@ -40,12 +41,22 @@ const FormLogin = () => {
         email: values.email,
         password: values.password,
         callbackUrl,
-      }).then((res) => {
-        if (res?.ok) {
-          setLoading(false);
-          push('/');
-        }
-      });
+      })
+        .then((res) => {
+          console.log(res);
+          if (res?.ok) {
+            setLoading(false);
+            push(callbackUrl);
+            console.log(callbackUrl);
+          }
+          if (!res?.ok) {
+            setLoading(false);
+            setError('Email or password is incorrect');
+          }
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
     } catch (error: any) {
       console.log(error.message);
       setLoading(false);
@@ -53,6 +64,9 @@ const FormLogin = () => {
   }
   return (
     <form className="flex flex-col gap-2 min-w-96 border rounded-md p-10" onSubmit={handleSubmit(onSubmit)}>
+      <div className="text-xs text-red-500">
+        <h1>{error}</h1>
+      </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm font-bold" htmlFor="email">
           Email
