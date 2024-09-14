@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './navbar.module.css';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 const Navbar = () => {
   const { data }: any = useSession();
@@ -36,7 +37,7 @@ const Navbar = () => {
         )}
         {data?.user && (
           <div className="flex text-white items-center gap-1 border p-1 rounded-xl cursor-pointer hover:bg-zinc-100 hover:text-black transition-all ">
-            <div className="rounded-full w-8 h-8 bg-gray-200 animate-pulse"></div>
+            {data.user.image ? <Image src={data.user.image} alt="user-profile" width={30} height={30} className="rounded-full" /> : <div className="rounded-full w-8 h-8 bg-gray-200 animate-pulse"></div>}
             {data.user.fullname}
           </div>
         )}

@@ -90,8 +90,19 @@ const FormLogin = () => {
       <button className="button !w-full !h-10 text-white disabled:cursor-progress" type="submit" disabled={loading}>
         {loading ? 'loading...' : 'submit'}
       </button>
+      <button
+        type="button"
+        onClick={() =>
+          signIn('google', {
+            callbackUrl,
+            redirect: false,
+          })
+        }
+      >
+        Sign in with Google
+      </button>
       <p>
-        Wanna create a new account?{' '}
+        Create a new account?{' '}
         <Link href="/auth/register" className="text-blue-500">
           register
         </Link>

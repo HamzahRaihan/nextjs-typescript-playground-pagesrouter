@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { addDoc, collection, doc, DocumentData, getDoc, getDocs, getFirestore, query, updateDoc, where } from 'firebase/firestore';
 import app from './init';
 import bcrypt from 'bcrypt';
 
@@ -59,5 +59,35 @@ export async function signUp(
         callback({ status: 'success', message: 'Registered successfully' });
       })
       .catch((error) => callback({ status: 'failed', message: error.message }));
+  }
+}
+
+type UserGoogle = {
+  fullname: string;
+  email: string;
+  image: string;
+  type: string;
+  role?: string;
+};
+
+export async function signInWithGoogle(userData: UserGoogle, callback: Function) {
+  const findUsers = query(collection(firestore, 'users'), where('email', '==', userData.email));
+
+  const snapshot = await getDocs(findUsers);
+  const data = (snapshot.docs as DocumentData[]).map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  if (data.length > 0) {
+    userData.role = data[0].role;
+    await updateDoc(doc(firestore, 'users', data[0].id), userData)
+      .then(() => callback({ status: 'success', message: 'Sign in with google successfully', data: userData }))
+      .catch(() => callback({ status: 'failed', message: 'Failed sign in' }));
+  } else {
+    userData.role = 'customer';
+    return await addDoc(collection(firestore, 'users'), userData)
+      .then(() => callback({ status: 'success', message: 'Sign in with google successfully', data: userData }))
+      .catch(() => callback({ status: 'failed', message: 'Failed sign in' }));
   }
 }
