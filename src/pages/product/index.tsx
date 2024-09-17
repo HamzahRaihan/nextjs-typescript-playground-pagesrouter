@@ -9,7 +9,7 @@ const ProductPage = () => {
     <div>
       <h1>Product Page</h1>
       <p className="font-bold">Select Product</p>
-      <ProductCard products={isLoading ? [] : data.result} />
+      <ProductCard products={isLoading ? [] : data?.result} />
     </div>
   );
 };
