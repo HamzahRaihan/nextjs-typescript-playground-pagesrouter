@@ -11,7 +11,15 @@
 //   );
 // };
 
-// export default ProductPage;
+const ProductPage = () => {
+  return (
+    <div className="my-2">
+      <h1>Product Page (static side)</h1>
+    </div>
+  );
+};
+
+export default ProductPage;
 
 // // static side
 // // export async function getStaticProps() {
